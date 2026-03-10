@@ -11,7 +11,8 @@ import androidx.multidex.MultiDexApplication;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
-import com.mob.MobSDK;
+// MobSDK 不兼容 AGP 8，暂时注释
+// import com.mob.MobSDK;
 import com.musicbase.preferences.Preferences;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
