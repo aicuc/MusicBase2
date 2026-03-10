@@ -25,25 +25,35 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # ===== 签名配置（使用 GitHub Secrets）=====
-    # 如果需要签名 Release APK，取消下面的注释并在 GitHub Settings -> Secrets 中添加：
-    # KEYSTORE_BASE64: 运行 base64 -i yinji.jks | pbcopy 得到的字符串
-    # KEY_ALIAS: key0
-    # KEY_PASSWORD: 你的密码
-    # STORE_PASSWORD: 你的密码
-    - name: Decode Keystore
-      if: ${{ github.event_name != 'pull_request' }}
-      run: |
-        echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > yinji.jks
-      env:
-        KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
+    # ===== Release 签名打包 =====
+    # 需要在 GitHub Settings -> Secrets 中配置：
+    # KEYSTORE_BASE64, KEY_ALIAS, KEY_PASSWORD, STORE_PASSWORD
+    - name: Decode and convert Keystore
+      if: ${{ github.event_name != 'pull_request' && env.HAS_SECRETS == 'true' }}
+      run: |
+        echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > signing-key.jks
+        keytool -importkeystore \
+          -srckeystore signing-key.jks -srcstoretype JKS \
+          -srcstorepass "${{ secrets.STORE_PASSWORD }}" \
+          -destkeystore signing-key.p12 -deststoretype PKCS12 \
+          -deststorepass "${{ secrets.STORE_PASSWORD }}" \
+          -noprompt
+      env:
+        HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}
+
     - name: Build Release APK
-      if: ${{ github.event_name != 'pull_request' }}
+      if: ${{ github.event_name != 'pull_request' && env.HAS_SECRETS == 'true' }}
       run: ./gradlew assembleRelease
+      env:
+        CI: true
+        HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}
+        KEYSTORE_FILE: ${{ github.workspace }}/signing-key.p12
+        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
 
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
@@ -53,9 +63,11 @@ jobs:
         retention-days: 30
 
     - name: Upload Release APK
-      if: ${{ github.event_name != 'pull_request' }}
+      if: ${{ github.event_name != 'pull_request' && env.HAS_SECRETS == 'true' }}
       uses: actions/upload-artifact@v4
       with:
         name: release-apk
         path: app/build/outputs/apk/release/*.apk
         retention-days: 90
+      env:
+        HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}
