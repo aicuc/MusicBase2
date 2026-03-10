@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao' // apply plugin
+// greendao-gradle-plugin 不兼容 Gradle 8，暂时注释
+// apply plugin: 'org.greenrobot.greendao'
 //apply plugin: 'android-apt'
 // MobSDK 不兼容 AGP 8.x，暂时注释掉
 // apply plugin: 'com.mob.sdk'
@@ -27,10 +28,12 @@ android {
         ]
     }
 
-    greendao {
-        schemaVersion 1 //数据库版本号
-        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
-    }
+    // greendao 配置暂时注释（插件不兼容 Gradle 8）
+    // 已有的 DaoMaster/DaoSession/Dao 文件不受影响
+    // greendao {
+    //     schemaVersion 1
+    //     targetGenDir 'src/main/java'
+    // }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
