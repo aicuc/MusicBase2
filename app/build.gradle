@@ -62,7 +62,7 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+            // debug 使用默认 debug keystore，避免 CI 上 JDK 17 与 yinji.jks 不兼容
         }
         release {
             minifyEnabled false
