@@ -366,7 +366,7 @@ public class LoginActivity extends BaseActivity {
      *
      * @return 唯一标识符
      */
-    public String getDeviceId() {
+    public String getDeviceUniqueId() {
         return Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 

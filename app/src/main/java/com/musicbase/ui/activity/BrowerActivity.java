@@ -103,7 +103,8 @@ public class BrowerActivity extends Activity {
         ws.setBuiltInZoomControls(true);
         ws.setSupportZoom(true);
         ws.setDomStorageEnabled(true);
-        ws.setAppCacheEnabled(true);
+        // setAppCacheEnabled 已在 API 33 中移除
+        // ws.setAppCacheEnabled(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ws.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);

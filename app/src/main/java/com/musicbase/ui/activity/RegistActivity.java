@@ -121,7 +121,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
      *
      * @return 唯一标识符
      */
-    public String getDeviceId() {
+    public String getDeviceUniqueId() {
         // 通过 SharedPreferences 获取 GUID
 
         return Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
