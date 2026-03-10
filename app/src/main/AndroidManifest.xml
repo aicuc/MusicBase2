@@ -39,10 +39,12 @@
             >
         <activity
             android:name=".ui.activity.ChooseHeadActivity"
+            android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <activity
                 android:name=".ui.activity.TestPaperSaveActivity"
+                android:exported="false"
                 android:launchMode="singleTop"
                 android:screenOrientation="portrait"></activity>
         <activity
@@ -134,6 +136,7 @@
         <activity
                 android:name=".SplashADActivity"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:exported="true"
                 android:screenOrientation="portrait"
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                 android:windowSoftInputMode="stateHidden">
@@ -157,6 +160,7 @@
         </activity>
         <activity
                 android:name=".ui.activity.DataActivity"
+                android:exported="true"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -207,6 +211,7 @@
         <activity
                 android:name=".ui.superplayer.SuperPlayerActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="false"
                 android:label="@string/app_name"
                 android:launchMode="singleTask"
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
@@ -268,6 +273,7 @@
         <activity android:name=".ui.activity.MipcaActivityCapture" />
         <activity
                 android:name="com.tencent.tauth.AuthActivity"
+                android:exported="true"
                 android:launchMode="singleTask"
                 android:noHistory="true">
             <intent-filter>
@@ -281,6 +287,7 @@
         </activity>
         <activity
                 android:name="com.tencent.connect.common.AssistActivity"
+                android:exported="false"
                 android:configChanges="orientation|keyboardHidden"
                 android:screenOrientation="behind"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- Since JCore2.0.0 Required SDK核心功能 -->
@@ -332,13 +339,16 @@
                 android:exported="false" /> <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
         <activity
                 android:name="com.qq.e.tg.ADActivity"
+                android:exported="false"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
                 android:name="com.qq.e.tg.PortraitADActivity"
+                android:exported="false"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
                 android:screenOrientation="portrait" />
         <activity
                 android:name="com.qq.e.tg.LandscapeADActivity"
+                android:exported="false"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
                 android:screenOrientation="landscape" />
 
@@ -356,6 +366,32 @@
         <meta-data
                 android:name="qqappid"
                 android:value="${qqappid}"></meta-data>
+
+        <!-- 微博 SDK: 覆盖 aar 中缺少 android:exported 的 Activity (Android 12+ 要求) -->
+        <activity
+                android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:exported="false"
+                android:launchMode="singleTask"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                tools:node="merge">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.sina.weibo.sdk.share.WbShareToStoryActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:exported="false"
+                android:launchMode="singleTask"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                tools:node="merge">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
