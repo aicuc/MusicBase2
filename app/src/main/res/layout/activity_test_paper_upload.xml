@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        <ImageButton
+                android:id="@+id/titlelayout_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:src="@mipmap/back" />
+
+        <TextView
+                android:id="@+id/titlelayout_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="12"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:singleLine="true"
+                android:textColor="@color/black_333333"
+                android:textSize="16sp"
+                tools:text="硕大的可骄傲阿斯阿斯阿斯阿斯" />
+
+        <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="删除"
+                android:textColor="@color/red_e61b19"
+                android:textSize="13sp"
+                android:visibility="visible" />
+
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@color/grey_e5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/layout_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="visible">
+
+        <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="fitCenter"
+                tools:background="@mipmap/zhibo_default"
+                android:layout_marginBottom="10dp"/>
+        <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\&#60;当前做题人"
+                android:textColor="@color/black_333333"
+                android:textSize="13sp"
+                android:layout_marginTop="20dp"
+                android:layout_alignTop="@+id/iv_photo"
+                android:layout_toRightOf="@+id/iv_photo"
+                android:layout_marginLeft="10dp"
+                />
+
+        <TextView
+                android:id="@+id/tv_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更换做题人\&#62;"
+                android:textColor="@color/red_e61b19"
+                android:textSize="13sp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv"
+                android:layout_toRightOf="@+id/iv_photo"
+                android:layout_marginLeft="10dp"
+                />
+    </RelativeLayout>
+
+    <com.musicbase.ui.view.JzvdVideoView
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+    </com.musicbase.ui.view.JzvdVideoView>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            >
+        <Button
+                android:id="@+id/btn_save"
+                android:layout_width="266dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rectangle_cccccc"
+                android:text="保存"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"/>
+        <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="266dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rectangle_e61b19"
+                android:text="提交"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
+</LinearLayout>

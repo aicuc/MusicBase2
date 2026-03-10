@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">音乐素养</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="username_hint">手机号码</string>
+    <string name="password_hint">密码</string>
+
+
+    <string name="islogin">islogin</string>
+    <string name="load_fail">加载失败</string>
+    <string name="xuanze">请选择支付方式</string>
+    <string name="zhifubao">支付宝支付</string>
+    <string name="wx">微信支付</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+    <string name="internet_fail">网络连接失败,请检查网络</string>
+
+    <string name="qv_add">+</string>
+    <string name="qv_remove">-</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="scan_pic">将识别图片放入框内, 即可自动扫描</string>
+</resources>

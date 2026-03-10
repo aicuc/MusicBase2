@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/rectangle_cdcdcd"
+        android:orientation="vertical">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="温馨提示"
+            android:textColor="@color/red_e61b19"
+            android:textSize="19sp"
+            android:layout_gravity="center_horizontal"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_cc"
+            android:layout_marginTop="16dp"/>
+
+    <TextView
+            android:id="@+id/tv_yinsi_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:text="asdasddaskl\nsadjlkasjdkas没开门大山里的门槛数据扩大那可就阿萨德了；马丁马路口苏门答腊"
+            android:textColor="@color/grey_999999"
+            android:textSize="12sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="16dp"/>
+    <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="240dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/red_e61b19"
+            android:text="同意"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="不同意并退出APP"
+            android:textColor="@color/grey_999999"
+            android:textSize="11sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"/>
+</LinearLayout>

@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+version = "5.2.4"
+
+android {
+    namespace 'com.lljjcoder.style.citypickerview'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 17
+        targetSdk 34
+        versionCode 6
+        versionName "5.2.4"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lint {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.github.open-android:pinyin4j:2.5.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+}

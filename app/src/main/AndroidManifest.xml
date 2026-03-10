@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.musicbase">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 点播播放器悬浮窗权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+            android:name=".MyApplication"
+            android:hardwareAccelerated="true"
+            android:icon="@mipmap/launcher1"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/launcher1"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+            tools:ignore="GoogleAppIndexingWarning"
+            tools:replace="android:allowBackup"
+            android:allowBackup ="false"
+            >
+        <activity
+            android:name=".ui.activity.ChooseHeadActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+        <activity
+                android:name=".ui.activity.TestPaperSaveActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait"></activity>
+        <activity
+                android:name=".ui.activity.PhotoListActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".ui.activity.TestPaperActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".ui.activity.TestPaperUploadActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".ui.activity.TestPaperResultActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".ui.activity.CameraActivity"
+                android:launchMode="singleTop"
+                android:theme="@style/dialog_style" />
+        <activity
+                android:name=".ui.activity.YinkaActivity"
+                android:launchMode="singleTop" />
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+                android:name="cn.jpush.android.ui.PopWinActivity"
+                android:exported="true"
+                android:theme="@style/MyDialogStyle"
+                tools:node="replace">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+                android:name="cn.jpush.android.ui.PushActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:exported="true"
+                android:theme="@android:style/Theme.NoTitleBar"
+                tools:node="replace">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <!--                            -->
+        <activity android:name=".ui.activity.Cardsuccess" />
+        <activity
+                android:name=".ui.activity.CardActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity android:name=".ui.activity.FirstActivity" />
+        <activity android:name=".ui.activity.BuyRecordActivity" />
+        <activity
+                android:name=".ui.activity.AddNewAddress"
+                android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".ui.activity.AddressList" />
+        <activity android:name=".ui.activity.TestActivity" />
+        <activity
+                android:name=".ui.activity.FolderActivity"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".ui.activity.SearchActivity"
+                android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.AccountActivity" />
+        <activity
+                android:name=".ui.activity.VideoActivity"
+                android:configChanges="orientation|screenSize|keyboardHidden"
+                android:launchMode="singleTop"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name=".ui.activity.LogoutActivity" />
+        <activity
+                android:name=".ui.activity.SongScored"
+                android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".ui.activity.SongScore" />
+        <activity
+                android:name=".ui.activity.MainActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:launchMode="singleTask" />
+        <activity android:name=".BaseActivity" />
+        <activity
+                android:name=".SplashADActivity"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".ui.activity.LoginActivity"
+                android:theme="@style/AppTheme"
+                android:windowSoftInputMode="adjustUnspecified|stateHidden">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+                android:name=".ui.activity.DataActivity"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- pndoo://yinyuesuyang:8888/home?id=" "; -->
+                <data
+                        android:host="yinyuesuyang"
+                        android:path="/home"
+                        android:port="8888"
+                        android:scheme="pndoo" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+                android:name="UMENG_APPKEY"
+                android:value="5c5269e4b465f56085000132" />
+        <meta-data
+                android:name="UMENG_CHANNEL"
+                android:value="index" />
+
+        <activity
+                android:name=".ui.activity.UpdateActivity"
+                android:theme="@style/AppTheme" />
+        <activity
+                android:name=".ui.activity.ForgetPasswordActivity"
+                android:theme="@style/AppTheme" />
+        <activity
+                android:name=".ui.activity.RegistActivity"
+                android:theme="@style/AppTheme" />
+        <activity
+                android:name=".ui.activity.ContentListActivity"
+                android:theme="@style/AppTheme" />
+        <activity
+                android:name=".ui.activity.DetailActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme" />
+        <activity
+                android:name=".ui.activity.BrowerActivity"
+                android:theme="@style/AppTheme" />
+        <activity
+                android:name=".ui.activity.WorkWebActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:theme="@style/AppTheme"
+                android:windowSoftInputMode="adjustResize" />
+        <activity
+                android:name=".ui.superplayer.SuperPlayerActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name"
+                android:launchMode="singleTask"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="cn.kuwo.player.action.SHORTCUT" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".ui.activity.MusicActivity"
+                android:configChanges="orientation|keyboardHidden|keyboard"
+                android:launchMode="singleInstance"
+                android:theme="@style/AnimTheme2"
+                android:windowSoftInputMode="adjustResize" />
+        <activity
+                android:name=".ui.activity.PayChooseActivity"
+                android:launchMode="singleTop"
+                android:theme="@style/AppTheme" /> <!-- 微信分享回调 -->
+        <activity
+                android:name="com.music.base.wxapi.WXEntryActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:exported="true"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+                android:name="com.music.base.wxapi.WXPayEntryActivity"
+                android:exported="true"
+                android:launchMode="singleTop" /> <!-- alipay sdk begin -->
+        <activity
+                android:name="com.alipay.sdk.app.H5PayActivity"
+                android:configChanges="orientation|keyboardHidden|navigation"
+                android:exported="false"
+                android:screenOrientation="behind" />
+        <activity
+                android:name="com.alipay.sdk.auth.AuthActivity"
+                android:configChanges="orientation|keyboardHidden|navigation"
+                android:exported="false"
+                android:screenOrientation="behind" />
+
+        <service
+                android:name=".download2.TestService"
+                android:enabled="true"
+                android:exported="false"
+                android:label="VersionUpdateService">
+            <intent-filter>
+                <action android:name="com.shopin.android.services.TestService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".ui.activity.SettingActivity" />
+        <activity android:name=".ui.activity.CacheActivity" />
+        <activity android:name=".ui.activity.BookDeleteActivity" />
+        <activity android:name=".ui.activity.BookActivity" />
+        <activity android:name=".ui.activity.MipcaActivityCapture" />
+        <activity
+                android:name="com.tencent.tauth.AuthActivity"
+                android:launchMode="singleTask"
+                android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106701619" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.tencent.connect.common.AssistActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:screenOrientation="behind"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- Since JCore2.0.0 Required SDK核心功能 -->
+        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service
+                android:name=".service.PushService"
+                android:enabled="true"
+                android:exported="false"
+                android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service> <!-- Required since 3.0.7 -->
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 3.3.0开始所有事件将通过该类回调 -->
+        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <receiver
+                android:name=".broadcast.MyJPushMessageReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.music.base" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+                android:name=".ui.activity.SecretDialogActivity"
+                android:launchMode="singleTop"
+                android:theme="@style/dialog_style" />
+
+        <provider
+                android:name="com.qq.e.comm.GDTFileProvider"
+                android:authorities="${applicationId}.gdt.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/gdt_file_path" />
+        </provider>
+
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false" /> <!-- 声明SDK所需要的组件 -->
+        <service
+                android:name="com.qq.e.comm.DownloadService"
+                android:exported="false" /> <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
+        <activity
+                android:name="com.qq.e.tg.ADActivity"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+                android:name="com.qq.e.tg.PortraitADActivity"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.qq.e.tg.LandscapeADActivity"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:screenOrientation="landscape" />
+
+        <provider
+                android:name=".provider.MyProvider"
+                android:authorities="com.musicbase.provider.MyProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/filepaths" />
+            <!-- //在res中建立一个xml文件夹，在文件夹中创建filepaths.xml文件 -->
+        </provider>
+
+        <meta-data
+                android:name="qqappid"
+                android:value="${qqappid}"></meta-data>
+    </application>
+
+</manifest>

@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_ef"
+        tools:context="com.musicbase.ui.fragment.FirstFragment"
+        android:orientation="vertical">
+    <include
+            android:id="@+id/layout_title"
+            layout="@layout/layout_title"
+            android:visibility="gone"/>
+
+    <com.musicbase.ui.view.SuperSwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding = "15dp"/>
+    </com.musicbase.ui.view.SuperSwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.SongScored">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/layout_title" />
+
+    <ImageView
+        android:id="@+id/image_song"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toTopOf="@id/begin_sing"
+        app:layout_constraintTop_toBottomOf="@id/layout_title" />
+
+    <com.musicbase.ui.view.DiffuseView
+        android:id="@+id/begin_sing"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="20dp"
+        app:diffuse_color="@color/colorAccent"
+        app:diffuse_coreColor="@color/colorPrimaryDark"
+        app:diffuse_coreImage="@drawable/stop"
+        app:diffuse_coreRadius="50"
+        app:layout_constraintBottom_toTopOf="@id/time_count"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/begin_again"
+        android:layout_width="90dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_corner_shape"
+        android:drawableLeft="@mipmap/record"
+        android:padding="5dp"
+        android:text="重新录音"
+
+        android:textColor="@color/red_e61b19"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/begin_score" />
+
+    <Button
+        android:id="@+id/begin_score"
+        android:layout_width="90dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_corner_shape"
+        android:drawableLeft="@mipmap/score"
+        android:padding="5dp"
+        android:text="智能评分"
+
+        android:textColor="@color/red_e61b19"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/listen_score"
+        android:layout_width="90dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_corner_shape"
+        android:drawableLeft="@mipmap/horn"
+        android:padding="5dp"
+        android:text="标准范唱"
+        android:textColor="@color/red_e61b19"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/begin_score"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/time_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="00:00:00"
+        android:textColor="#666666"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/begin_score"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/sign_song"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="4C"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@id/time_count"
+        app:layout_constraintRight_toLeftOf="@id/begin_sing"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

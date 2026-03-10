@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="grey_666666">#666666</color>
+    <color name="grey_999999">#999999</color>
+    <color name="grey_e5">#e5e5e5</color>
+    <color name="grey_cc">#cccccc</color>
+    <color name="grey_ef">#efefef</color>
+    <color name="colorGray4">#787878</color>
+    <color name="login_hint_color">#D2D2D2</color>
+
+    <color name="black_333333">#333333</color>
+    <color name="black_444444">#444444</color>
+    <color name="black_666666">#666666</color>
+    <color name="black_432b2a">#432b2a</color>
+    <color name="black_tran">#44000000</color>
+
+    <color name="line_f7">#f7f7f7</color>
+    <color name="line_ed">#ededed</color>
+
+    <color name="red_e61b19">#e61b19</color>
+    <color name="red_button">#e65c57</color>
+    <color name="yellow_button">#E6C757</color>
+
+    <color name="pink_fef3f2">#fef3f2</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="biz_audio_progress_bg">#00b2ff</color>
+    <color name="biz_audio_progress_first">#ffffff</color>
+    <color name="biz_audio_progress_second">#6b6666</color>
+    <color name="default_bg">#aa000000</color>
+    <color name="black_a10_color">#1a000000</color>
+
+    <color name="audio_black">#393838</color>
+    <color name="audio_red">#f76666</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="e6e6e6">#e6e6e6</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+</resources>

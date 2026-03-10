@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--默认情况下是一个蓝色背景的圆形-->
+    <item android:state_window_focused="false">
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/white" />
+
+            <!-- 圆角的半径 -->
+            <corners android:radius="3dp" />
+
+            <!--边框-->
+            <stroke android:width="1dip" android:color="@color/red_e61b19" />
+        </shape>
+
+    </item>
+    <!--单击时是一个绿色背景的圆形-->
+    <item android:state_pressed="true">
+        <!--填充颜色-->
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/yellow_button" />
+
+            <!-- 圆角的半径 -->
+            <corners android:radius="3dp" />
+
+            <!--边框-->
+            <stroke android:width="1dip" android:color="@color/red_e61b19" />
+        </shape>
+    </item>
+</selector>
+

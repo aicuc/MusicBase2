@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="62dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+        <ImageView
+                android:id="@+id/im"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center" />
+
+        <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:textColor="@color/grey_666666"
+                android:textSize="14sp"
+                tools:text="第一课第一课第一课第一课第第一课第一课第一课第一课第第一课第一课第一课第一课第第一课第一课第一课第一课第第一课第一课第一课第一课第第一课第一课第一课第一课第第一课第一课第一课第一课第" />
+
+        <TextView
+                android:id="@+id/free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_e61b19"
+                android:padding="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="  ¥ 18.9  "
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone"/>
+
+        <ImageView
+                android:id="@+id/nofree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_lock"
+                android:visibility="gone" />
+
+        <ImageView
+                android:id="@+id/nodownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/download"
+                android:visibility="gone" />
+
+        <TextView
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_e61b19"
+                android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:textColor="@color/grey_cc"
+            android:textSize="14sp"
+            tools:text="11111111111111111111111111"
+            android:visibility="gone"/>
+</LinearLayout>

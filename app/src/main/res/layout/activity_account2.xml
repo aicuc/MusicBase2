@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.AccountActivity">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/layout_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_now_use"
+        style="@style/account_setting"
+        android:text="当前登录账号：手机183****1409"
+        android:textColor="#666"
+        android:textSize="12sp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_title" />
+
+    <TextView
+        android:id="@+id/safe_setting"
+        style="@style/account_setting"
+        android:text="安全设置"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_now_use" />
+
+    <TextView
+        android:id="@+id/phone_number"
+        style="@style/account_setting"
+        android:text="手机号"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/safe_setting" />
+
+    <TextView
+        android:id="@+id/change_phone"
+        style="@style/setting_right"
+        android:text="更换    "
+        app:layout_constraintBottom_toBottomOf="@id/phone_number"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/phone_number" />
+
+    <TextView
+        android:id="@+id/password_text"
+        style="@style/account_setting"
+        android:text="登录密码"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_number" />
+
+    <TextView
+        android:id="@+id/change_pass"
+        style="@style/setting_right"
+        android:text="修改    "
+        app:layout_constraintBottom_toBottomOf="@id/password_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/password_text" />
+
+
+    <TextView
+        android:id="@+id/band_setting"
+        style="@style/account_setting"
+        android:paddingTop="23dp"
+        android:text="绑定设置"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_text" />
+
+    <TextView
+        android:id="@+id/wechat_text"
+        style="@style/account_setting"
+        android:text="微信登录"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/band_setting" />
+
+    <TextView
+        android:id="@+id/wechat_bind"
+        style="@style/setting_right"
+        android:text="绑定    "
+        app:layout_constraintBottom_toBottomOf="@id/wechat_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/wechat_text" />
+
+
+    <TextView
+        android:id="@+id/qq_text"
+        style="@style/account_setting"
+        android:text="QQ登录"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wechat_text" />
+
+    <TextView
+        android:id="@+id/qq_bind"
+        style="@style/setting_right"
+        android:text="绑定    "
+        app:layout_constraintBottom_toBottomOf="@id/qq_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/qq_text" />
+
+
+    <TextView
+        android:id="@+id/weibo_text"
+        style="@style/account_setting"
+        android:text="微博登录"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/qq_text" />
+
+    <TextView
+        android:id="@+id/weibo_bind"
+        style="@style/setting_right"
+        android:text="绑定    "
+        app:layout_constraintBottom_toBottomOf="@id/weibo_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/weibo_text" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

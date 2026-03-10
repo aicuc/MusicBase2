@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:banner_default_image="@mipmap/zhibo_default"
+            app:banner_layout="@layout/banner_custom_viewpager"
+            app:image_scale_type="fit_center"
+            app:indicator_drawable_selected="@drawable/banner_select"
+            app:indicator_drawable_unselected="@drawable/banner_unselect"
+            app:indicator_height="5dp"
+            app:indicator_margin="3dp"
+            app:indicator_width="5dp"
+            app:title_background="#80999999"
+            app:title_height="30dp"
+            app:title_textcolor="@android:color/white"
+            app:title_textsize="16sp"
+            android:layout_weight="1"/>
+
+    <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不再提示"
+            android:textColor="@color/red_e61b19"
+            android:button="@drawable/chenckbox_selector"
+            android:paddingLeft="5dp"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@null"/>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_e5"
+            />
+    <Button
+            android:id="@+id/btn_join"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/transparent"
+            android:text="完成"
+            android:textColor="@color/black_333333"
+            android:textSize="16sp"
+            />
+
+</LinearLayout>

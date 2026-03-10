@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_book"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:background="@color/white"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+    <ImageView
+            android:id="@+id/iv_book"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:scaleType="fitCenter"/>
+
+    <TextView
+            android:id="@+id/tv_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:textColor="@color/grey_999999"
+            android:textSize="13sp" />
+
+    <Button
+            android:id="@+id/btn_book"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_bg"
+            android:clickable="false"
+            android:textColor="@color/red_e61b19"
+            android:textSize="13sp"
+            android:text="找回">
+
+    </Button>
+</LinearLayout>

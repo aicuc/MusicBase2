@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.FolderActivity">
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/layout_title" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_buy"
+        app:layout_constraintTop_toBottomOf="@id/layout_title" />
+
+    <LinearLayout
+        android:id="@+id/btn_buy"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_e5"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:gravity="right|center_vertical"
+            android:text="整体购买："
+            android:textColor="@color/black_333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/price_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:gravity="left|center_vertical"
+            android:text="¥"
+            android:textColor="@color/red_e61b19"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/red_e61b19"
+            android:gravity="center"
+            android:text="加入我的乐学"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

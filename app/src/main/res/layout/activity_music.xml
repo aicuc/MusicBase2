@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!--android:background="@mipmap/blank_music"-->
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_weight="2"
+        android:background="@android:color/transparent"
+        android:src="@drawable/iconmusic_03" />
+
+    <TextView
+        android:id="@+id/title_music"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1.2"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/black_432b2a"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/title_second"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.8"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#999"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_weight="8"
+        android:scaleType="fitCenter"
+        android:src="@drawable/music_03" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/music_speed"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:drawableLeft="@drawable/speed_music"
+            android:gravity="center_vertical"
+            android:onClick="speedChange"
+            android:text=" 1.0x" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/time_now"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@id/seekbar"
+            android:gravity="center"
+            android:text="00:00:00" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:progressDrawable="@drawable/video_progressbar"
+            android:thumb="@drawable/shape_circle" />
+
+
+        <TextView
+            android:id="@+id/time_all"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/seekbar"
+            android:gravity="center"
+            android:text="00:00:00" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="3">
+
+        <ImageButton
+            android:id="@+id/circleMode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/iconmusic_30"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/beforeMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/iconmusic_32"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/playAndPause"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:background="@android:color/transparent"
+            android:src="@drawable/iconmusic_07" />
+
+        <ImageButton
+            android:id="@+id/nextMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/iconmusic_14"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/musicList"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/all_music"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="#F1F1F1"
+        android:visibility="gone">
+
+        <com.musicbase.ui.view.DrawableVerticalButton
+            android:id="@+id/refreshMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/iconmusic_24"
+            android:drawablePadding="5dp"
+            android:includeFontPadding="false"
+            android:text="列表"
+            android:textColor="#888"
+            android:textSize="10sp" />
+
+        <com.musicbase.ui.view.DrawableVerticalButton
+            android:id="@+id/shareMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/iconmusic_05"
+            android:drawablePadding="5dp"
+            android:includeFontPadding="false"
+            android:text="分享"
+            android:textColor="#888"
+            android:textSize="10sp" />
+
+        <com.musicbase.ui.view.DrawableVerticalButton
+            android:id="@+id/likeMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/iconmusic_02"
+            android:drawablePadding="5dp"
+            android:includeFontPadding="false"
+            android:text="收藏"
+            android:textColor="#888"
+            android:textSize="10sp" />
+
+        <com.musicbase.ui.view.DrawableVerticalButton
+            android:id="@+id/downloadMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/iconmusic_27"
+            android:drawablePadding="5dp"
+            android:includeFontPadding="false"
+            android:text="下载"
+            android:textColor="#888"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <com.tencent.rtmp.ui.TXCloudVideoView
+        android:id="@+id/video_view"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="gone" />
+
+</LinearLayout>

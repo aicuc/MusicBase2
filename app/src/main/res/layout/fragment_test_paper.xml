@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.TestPaperFragment">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+        <LinearLayout
+                android:id="@+id/layout_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_333333"
+                    android:textSize="13sp"
+                    tools:text="sadadasdasda" />
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="分值："
+                    android:textColor="@color/black_333333"
+                    android:textSize="13sp" />
+
+            <TextView
+                    android:id="@+id/tv_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red_e61b19"
+                    android:textSize="13sp"
+                    tools:text="4.0" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/layout_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_333333"
+                    android:textSize="13sp"
+                    tools:text="sddasdadasdadasddasdadasdadasddasdadasdadasddasdadasdadasddasdadasdada" />
+
+            <ImageView
+                    android:id="@+id/iv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    tools:background="@mipmap/zhibo_default" />
+        </LinearLayout>
+
+        <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#ededed"
+                android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        <com.tencent.rtmp.ui.TXCloudVideoView
+                android:id="@+id/video_view"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:visibility="gone" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <ImageButton
+        android:id="@+id/titlelayout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:background="@android:color/transparent"
+        android:padding="10dp"
+        android:src="@mipmap/back" />
+
+    <TextView
+        android:id="@+id/titlelayout_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/black_333333"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/delete_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="删除"
+        android:textColor="@color/black_333333"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/grey_e5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+</RelativeLayout>

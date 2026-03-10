@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingLeft="5dp">
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/item_text"
+        android:gravity="center_vertical"
+        android:textColor="#4C4C4C" />
+
+    <TextView
+        android:id="@+id/account"
+        style="@style/item_text"
+        android:layout_weight="8"
+        android:gravity="center_vertical"
+        android:text="wswwdewd"
+        android:textColor="#4C4C4C" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/email"-->
+    <!--style="@style/item_text" />-->
+</LinearLayout>
+

@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+    <ImageView
+            android:id="@+id/iv_book1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter" />
+
+    <ImageView
+            android:id="@+id/iv_timeLimit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginBottom="3dp"
+            tools:src="@drawable/time_" />
+
+    <Button
+            android:id="@+id/btn_delete1"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@id/iv_book1"
+            android:layout_alignRight="@id/iv_book1"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_delete1"
+            android:paddingBottom="5dp"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:textSize="14dp"
+            android:visibility="invisible" />
+
+    <LinearLayout
+            android:id="@+id/layout_meng"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_tran"
+            android:visibility="gone"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal"
+            />
+</RelativeLayout>
