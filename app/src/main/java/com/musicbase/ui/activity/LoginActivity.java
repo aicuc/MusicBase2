@@ -46,8 +46,7 @@ import com.google.gson.reflect.TypeToken;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
-// MobSDK 不兼容 AGP 8，暂时注释
-// import com.mob.MobSDK;
+import com.mob.MobSDK;
 import com.music.base.wxapi.WXLoginUtils;
 import com.musicbase.BaseActivity;
 import com.musicbase.MyApplication;
@@ -99,9 +98,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jiguang.api.utils.JCollectionAuth;
 import cn.jpush.android.api.JPushInterface;
-// MobSDK 不兼容 AGP 8，暂时注释
-// import cn.smssdk.EventHandler;
-// import cn.smssdk.SMSSDK;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 import static com.musicbase.R.id.et_password;
 import static com.musicbase.R.id.et_username;
@@ -232,8 +230,7 @@ public class LoginActivity extends BaseActivity {
         mAuthInfo = new AuthInfo(this, Constant.APP_KEY, Constant.REDIRECT_URL, Constant.SCOPE);
         WbSdk.install(this, mAuthInfo);
         mSsoHandler = new SsoHandler(LoginActivity.this);
-        // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-        // SMSSDK.registerEventHandler(eh);
+        SMSSDK.registerEventHandler(eh);
     }
 
     /**
@@ -251,8 +248,7 @@ public class LoginActivity extends BaseActivity {
         UMConfigure.init(this, "5c5269e4b465f56085000132", "index", UMConfigure.DEVICE_TYPE_PHONE, null);
         // 选用AUTO页面采集模式
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
-        // TODO: MobSDK 不兼容 AGP 8，升级后恢复
-        // MobSDK.submitPolicyGrantResult(true, null);
+        MobSDK.submitPolicyGrantResult(true, null);
 
         Tencent.setIsPermissionGranted(true);
 
@@ -885,10 +881,7 @@ public class LoginActivity extends BaseActivity {
             return;
         }
         if (!TextUtils.isEmpty(phone) && phone.matches(phoneMatcher)) {
-            // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-            // SMSSDK.getVerificationCode("86", phone);
-            ActivityUtils.showToast(LoginActivity.this, "短信SDK升级中，暂不可用");
-            DialogUtils.dismissMyDialog();
+            SMSSDK.getVerificationCode("86", phone);
         }
     }
 
@@ -1163,13 +1156,10 @@ public class LoginActivity extends BaseActivity {
             time.cancel();
             time = null;
         }
-        // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-        // SMSSDK.unregisterEventHandler(eh);
+        SMSSDK.unregisterEventHandler(eh);
     }
 
 
-    // TODO: MobSDK SMSSDK 不兼容 AGP 8，EventHandler 暂时注释
-    /*
     EventHandler eh = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
@@ -1197,7 +1187,6 @@ public class LoginActivity extends BaseActivity {
             }
         }
     };
-    */
 
     @TargetApi(Build.VERSION_CODES.M)
     private void checkAndRequestPermission() {

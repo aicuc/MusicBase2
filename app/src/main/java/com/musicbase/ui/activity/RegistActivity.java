@@ -42,9 +42,8 @@ import org.xutils.x;
 import java.lang.reflect.Type;
 import java.util.UUID;
 
-// MobSDK 不兼容 AGP 8，暂时注释
-// import cn.smssdk.EventHandler;
-// import cn.smssdk.SMSSDK;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 import static com.musicbase.preferences.Preferences.BIND_PHONE_CODE;
 import static com.musicbase.preferences.Preferences.CONTRACT_USER;
@@ -75,8 +74,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
         initView();
-        // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-        // SMSSDK.registerEventHandler(eh);
+        SMSSDK.registerEventHandler(eh);
     }
 
     /**
@@ -338,9 +336,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
                 }
 
                 if (!TextUtils.isEmpty(phone) && phone.matches(phoneMatcher)) {
-                    // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-                    // SMSSDK.getVerificationCode("86", phone);
-                    ActivityUtils.showToast(RegistActivity.this, "短信SDK升级中，暂不可用");
+                    SMSSDK.getVerificationCode("86", phone);
                     DialogUtils.dismissMyDialog();
 //                    RequestParams params = new RequestParams(Preferences.SEND_SMS);
 //                    params.addQueryStringParameter("phone", phone);
@@ -433,13 +429,9 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
             time.cancel();
             time = null;
         }
-        // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-        // SMSSDK.unregisterEventHandler(eh);
+        SMSSDK.unregisterEventHandler(eh);
     }
 
-    // TODO: MobSDK SMSSDK 不兼容 AGP 8，EventHandler 暂时注释
-    // 升级 MobSDK 后恢复以下代码
-    /*
     EventHandler eh = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
@@ -467,5 +459,4 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
             }
         }
     };
-    */
 }

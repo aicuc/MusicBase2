@@ -49,9 +49,8 @@ import org.xutils.x;
 
 import java.lang.reflect.Type;
 
-// MobSDK 不兼容 AGP 8，暂时注释
-// import cn.smssdk.EventHandler;
-// import cn.smssdk.SMSSDK;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 import static com.musicbase.preferences.Preferences.phoneMatcher;
 

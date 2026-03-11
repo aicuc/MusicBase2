@@ -34,9 +34,8 @@ import com.orhanobut.logger.Logger;
 
 import java.lang.reflect.Type;
 
-// MobSDK 不兼容 AGP 8，暂时注释
-// import cn.smssdk.EventHandler;
-// import cn.smssdk.SMSSDK;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 import static com.musicbase.preferences.Preferences.phoneMatcher;
 
@@ -50,8 +49,7 @@ public class LogoutActivity extends BaseActivity implements LogoutCallBack {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logout);
-        // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-        // SMSSDK.registerEventHandler(eh);
+        SMSSDK.registerEventHandler(eh);
         initTitle();
         initData();
     }
@@ -138,8 +136,7 @@ public class LogoutActivity extends BaseActivity implements LogoutCallBack {
             time.cancel();
             time = null;
         }
-        // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-        // SMSSDK.unregisterEventHandler(eh);
+        SMSSDK.unregisterEventHandler(eh);
     }
 
     Button btn_send;
@@ -190,10 +187,7 @@ public class LogoutActivity extends BaseActivity implements LogoutCallBack {
             return;
         }
         if (!TextUtils.isEmpty(phone) && phone.matches(phoneMatcher)) {
-            // TODO: MobSDK SMSSDK 不兼容 AGP 8，升级后恢复
-            // SMSSDK.getVerificationCode("86", phone);
-            ActivityUtils.showToast(LogoutActivity.this, "短信SDK升级中，暂不可用");
-            DialogUtils.dismissMyDialog();
+            SMSSDK.getVerificationCode("86", phone);
         }
     }
 
@@ -254,8 +248,6 @@ public class LogoutActivity extends BaseActivity implements LogoutCallBack {
         }
     }
 
-    // TODO: MobSDK SMSSDK 不兼容 AGP 8，EventHandler 暂时注释
-    /*
     EventHandler eh = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
@@ -283,5 +275,4 @@ public class LogoutActivity extends BaseActivity implements LogoutCallBack {
             }
         }
     };
-    */
 }

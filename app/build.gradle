@@ -2,8 +2,7 @@ apply plugin: 'com.android.application'
 // greendao-gradle-plugin 不兼容 Gradle 8，暂时注释
 // apply plugin: 'org.greenrobot.greendao'
 //apply plugin: 'android-apt'
-// MobSDK 不兼容 AGP 8.x，暂时注释掉
-// apply plugin: 'com.mob.sdk'
+apply plugin: 'com.mob.sdk'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -91,14 +90,13 @@ android {
         }
     }
 
-    // MobSDK 不兼容 AGP 8.x，暂时注释掉
-    // MobSDK {
-    //     appKey '31533489b8bdc'
-    //     appSecret '79985f697833509ffc1c25d333e30794'
-    //     SMSSDK {
-    //         gui false
-    //     }
-    // }
+    MobSDK {
+        appKey '31533489b8bdc'
+        appSecret '79985f697833509ffc1c25d333e30794'
+        SMSSDK {
+            gui false
+        }
+    }
 }
 
 dependencies {

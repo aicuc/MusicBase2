@@ -12,8 +12,7 @@ import androidx.multidex.MultiDexApplication;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
-// MobSDK 不兼容 AGP 8，暂时注释
-// import com.mob.MobSDK;
+import com.mob.MobSDK;
 import com.musicbase.preferences.Preferences;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
@@ -96,7 +95,8 @@ public class MyApplication extends MultiDexApplication {
         }
         sSdkInitialized = true;
         GDTAdSdk.init(context.getApplicationContext(), Preferences.APPID);
-        Log.d("MyApplication", "GDTAdSdk initialized after user consent");
+        MobSDK.submitPolicyGrantResult(true, null);
+        Log.d("MyApplication", "GDTAdSdk & MobSDK initialized after user consent");
     }
 
     private String getProcessName(Context context) {
