@@ -2,7 +2,9 @@ package com.musicbase;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -58,6 +60,17 @@ public class SplashADActivity extends Activity implements SplashADListener {
         container = (ViewGroup) this.findViewById(R.id.splash_container);
         splashHolder = (ImageView) findViewById(R.id.splash_holder);
 
+        // 判断是否同意过隐私协议
+        SharedPreferences preferences = getSharedPreferences("first_pref", Context.MODE_PRIVATE);
+        boolean isFirstIn = preferences.getBoolean("isFirstIn2", true);
+        if (isFirstIn) {
+            startActivityForResult(new Intent(this, com.musicbase.ui.activity.SecretDialogActivity.class), 0x01);
+        } else {
+            proceedWithAppLaunch();
+        }
+    }
+
+    private void proceedWithAppLaunch() {
         // 如果targetSDKVersion >= 23，就要申请好权限。如果您的App没有适配到Android6.0（即targetSDKVersion < 23），那么只需要在这里直接调用fetchSplashAD接口。
         if (Build.VERSION.SDK_INT >= 23) {
             checkAndRequestPermission();
@@ -65,21 +78,20 @@ public class SplashADActivity extends Activity implements SplashADListener {
             // 如果是Android6.0以下的机器，默认在安装时获得了所有权限，可以直接调用SDK
             fetchSplashAD(this, container, getPosId(), this);
         }
-//        container.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Log.i("AD_DEMO", "container click");
-//                return false;
-//            }
-//        });
-//        findViewById(R.id.view).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.i("AD_DEMO", "view click");
-//                return;
-//            }
-//        });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0x01) {
+            if (resultCode == 1000) {
+                // 用户同意了隐私政策
+                proceedWithAppLaunch();
+            } else {
+                // 用户拒绝或者直接返回，退出应用
+                finish();
+            }
+        }
     }
 
     private String getPosId() {
@@ -139,15 +151,15 @@ public class SplashADActivity extends Activity implements SplashADListener {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1024 && hasAllPermissionsGranted(grantResults)) {
-            fetchSplashAD(this, container, getPosId(), this);
-        } else {
-            // 如果用户没有授权，那么应该说明意图，引导用户去设置里面授权。
-            Toast.makeText(this, "应用缺少必要的权限！请点击\"权限\"，打开所需要的权限。", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            intent.setData(Uri.parse("package:" + getPackageName()));
-            startActivity(intent);
-            finish();
+        if (requestCode == 1024) {
+            if (hasAllPermissionsGranted(grantResults)) {
+                fetchSplashAD(this, container, getPosId(), this);
+            } else {
+                // 华为上架要求：如果用户拒绝权限，应用不能直接退出或关闭。
+                // 因此如果拒绝了部分权限，我们不再强制退出，而是继续执行跳转，只是不加载广告SDK。
+                Toast.makeText(this, "部分权限被拒绝，可能影响部分功能体验", Toast.LENGTH_SHORT).show();
+                next();
+            }
         }
     }
 

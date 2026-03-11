@@ -210,18 +210,7 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         initView();
-        SharedPreferences preferences = getSharedPreferences("first_pref", MODE_PRIVATE);
-        boolean isFirstIn = preferences.getBoolean("isFirstIn2", true);
-        if (isFirstIn) {
-            startActivityForResult(new Intent(this, SecretDialogActivity.class), 0x01);
-        } else {
-            //            if (Build.VERSION.SDK_INT >= 23) {
-            //                checkAndRequestPermission();
-            //            } else {
-            // 如果是Android6.0以下的机器，默认在安装时获得了所有权限，可以直接调用SDK
-            start();
-            //            }
-        }
+        start();
     }
 
     private void start() {
