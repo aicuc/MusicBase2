@@ -25,8 +25,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build Debug APK
-      run: ./gradlew assembleDebug
+    - name: Build Debug APK (arm64 + arm32)
+      run: ./gradlew assembleArm64Debug assembleArm32Debug
 
     # ===== Release 签名打包 =====
     # 需要在 GitHub Settings -> Secrets 中配置：
@@ -44,9 +44,9 @@ jobs:
       env:
         HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}
 
-    - name: Build Release APK
+    - name: Build Release APK (arm64 + arm32)
       if: ${{ github.event_name != 'pull_request' && env.HAS_SECRETS == 'true' }}
-      run: ./gradlew assembleRelease
+      run: ./gradlew assembleArm64Release assembleArm32Release
       env:
         CI: true
         HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}
@@ -55,19 +55,36 @@ jobs:
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
 
-    - name: Upload Debug APK
+    - name: Upload Debug APK (arm64)
       uses: actions/upload-artifact@v4
       with:
-        name: debug-apk
-        path: app/build/outputs/apk/debug/*.apk
+        name: debug-apk-arm64
+        path: app/build/outputs/apk/arm64/debug/*.apk
         retention-days: 30
 
-    - name: Upload Release APK
+    - name: Upload Debug APK (arm32)
+      uses: actions/upload-artifact@v4
+      with:
+        name: debug-apk-arm32
+        path: app/build/outputs/apk/arm32/debug/*.apk
+        retention-days: 30
+
+    - name: Upload Release APK (arm64)
       if: ${{ github.event_name != 'pull_request' && env.HAS_SECRETS == 'true' }}
       uses: actions/upload-artifact@v4
       with:
-        name: release-apk
-        path: app/build/outputs/apk/release/*.apk
+        name: release-apk-arm64
+        path: app/build/outputs/apk/arm64/release/*.apk
+        retention-days: 90
+      env:
+        HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}
+
+    - name: Upload Release APK (arm32)
+      if: ${{ github.event_name != 'pull_request' && env.HAS_SECRETS == 'true' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-apk-arm32
+        path: app/build/outputs/apk/arm32/release/*.apk
         retention-days: 90
       env:
         HAS_SECRETS: ${{ secrets.KEYSTORE_BASE64 != '' }}

@@ -27,6 +27,23 @@ android {
         ]
     }
 
+    flavorDimensions 'abi'
+
+    productFlavors {
+        arm64 {
+            dimension 'abi'
+            ndk {
+                abiFilters 'arm64-v8a'
+            }
+        }
+        arm32 {
+            dimension 'abi'
+            ndk {
+                abiFilters 'armeabi-v7a'
+            }
+        }
+    }
+
     // greendao 配置暂时注释（插件不兼容 Gradle 8）
     // 已有的 DaoMaster/DaoSession/Dao 文件不受影响
     // greendao {
