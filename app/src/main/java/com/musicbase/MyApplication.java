@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 import android.webkit.WebView;
 
 import androidx.multidex.MultiDexApplication;
@@ -70,7 +71,8 @@ public class MyApplication extends MultiDexApplication {
 
         UMConfigure.preInit(this, null, null);
 //        MobSDK.submitPolicyGrantResult(true, null);
-        GDTAdSdk.init(this, Preferences.APPID);
+        // GDTAdSdk.init 延迟到用户同意隐私政策后调用，避免在同意前获取 Android_ID
+        // GDTAdSdk.init(this, Preferences.APPID);
 
         //屏蔽android9 webview加载问题
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -80,6 +82,21 @@ public class MyApplication extends MultiDexApplication {
                 WebView.setDataDirectorySuffix(processName);
             }
         }
+    }
+
+    /**
+     * 在用户同意隐私政策后调用此方法初始化需要采集设备信息的 SDK。
+     * 包含防重复初始化逻辑。
+     */
+    private static boolean sSdkInitialized = false;
+
+    public static synchronized void initSDKsAfterConsent(Context context) {
+        if (sSdkInitialized) {
+            return;
+        }
+        sSdkInitialized = true;
+        GDTAdSdk.init(context.getApplicationContext(), Preferences.APPID);
+        Log.d("MyApplication", "GDTAdSdk initialized after user consent");
     }
 
     private String getProcessName(Context context) {

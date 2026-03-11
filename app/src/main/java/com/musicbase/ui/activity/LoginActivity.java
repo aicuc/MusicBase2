@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +23,11 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -476,6 +482,50 @@ public class LoginActivity extends BaseActivity {
                 isCbxXieyi = isChecked;
             }
         });
+
+        // 设置可点击的《用户协议》和《隐私政策》链接
+        String agreementText = "我已阅读并同意《用户协议》和《隐私政策》";
+        SpannableString spannableAgreement = new SpannableString(agreementText);
+
+        int xyStart = agreementText.indexOf("《用户协议》");
+        int xyEnd = xyStart + "《用户协议》".length();
+        spannableAgreement.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                Intent intent = new Intent(LoginActivity.this, BrowerActivity.class);
+                intent.putExtra("filePath", Preferences.XIEYI_URL);
+                intent.putExtra("name", "用户协议");
+                intent.putExtra("allowOpenInBrowser", 0);
+                startActivity(intent);
+            }
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                ds.setColor(getResources().getColor(R.color.red_e61b19));
+                ds.setUnderlineText(false);
+            }
+        }, xyStart, xyEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+        int ysStart = agreementText.indexOf("《隐私政策》");
+        int ysEnd = ysStart + "《隐私政策》".length();
+        spannableAgreement.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                Intent intent = new Intent(LoginActivity.this, BrowerActivity.class);
+                intent.putExtra("filePath", Preferences.YINSI_URL);
+                intent.putExtra("name", "隐私政策");
+                intent.putExtra("allowOpenInBrowser", 0);
+                startActivity(intent);
+            }
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                ds.setColor(getResources().getColor(R.color.red_e61b19));
+                ds.setUnderlineText(false);
+            }
+        }, ysStart, ysEnd, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+        user_agreement.setText(spannableAgreement);
+        user_agreement.setMovementMethod(LinkMovementMethod.getInstance());
+        user_agreement.setHighlightColor(Color.TRANSPARENT);
     }
 
     /**
@@ -574,7 +624,7 @@ public class LoginActivity extends BaseActivity {
      */
     private boolean checkXieyi() {
         if (!isCbxXieyi)
-            ActivityUtils.showToast(LoginActivity.this, "请先阅读并同意用户协议");
+            ActivityUtils.showToast(LoginActivity.this, "请先阅读并同意用户协议和隐私政策");
         return isCbxXieyi;
     }
 
@@ -850,11 +900,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.btn_visible:
                 break;
             case R.id.user_agreement:
-                Intent intent3 = new Intent(this, WorkWebActivity.class);
-                intent3.putExtra("filePath", CONTRACT_USER);
-                intent3.putExtra("name", "用户协议");
-                intent3.putExtra("fileType", "html");
-                startActivity(intent3);
+                // 链接点击已通过 SpannableString 在 initView 中处理
                 break;
             case R.id.btn_forget:
                 btnForgot();

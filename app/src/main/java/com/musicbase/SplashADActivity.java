@@ -71,6 +71,8 @@ public class SplashADActivity extends Activity implements SplashADListener {
     }
 
     private void proceedWithAppLaunch() {
+        // 用户已同意隐私政策，现在初始化需要采集设备信息的 SDK
+        MyApplication.initSDKsAfterConsent(this);
         // 如果targetSDKVersion >= 23，就要申请好权限。如果您的App没有适配到Android6.0（即targetSDKVersion < 23），那么只需要在这里直接调用fetchSplashAD接口。
         if (Build.VERSION.SDK_INT >= 23) {
             checkAndRequestPermission();

@@ -63,39 +63,51 @@ public class SecretDialogActivity extends BaseActivity {
         String content = getFromAssets();
         content = content.replace("\\n", "\n");
         Spannable spannable = new SpannableStringBuilder(content);
-        spannable.setSpan(new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                Intent intent = new Intent(SecretDialogActivity.this, BrowerActivity.class);
-                intent.putExtra("filePath", Preferences.YINSI_URL);
-                intent.putExtra("name", "隐私政策");
-                intent.putExtra("allowOpenInBrowser", 0);
-                startActivity(intent);
-            }
 
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                ds.setColor(SecretDialogActivity.this.getResources().getColor(R.color.red_e61b19));
-                ds.setUnderlineText(false);
-            }
-        }, content.length() - 48, content.length() - 42, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        // 动态查找《隐私政策》位置，避免硬编码偏移量
+        int yinsiStart = content.indexOf("《隐私政策》");
+        int yinsiEnd = yinsiStart + "《隐私政策》".length();
+        if (yinsiStart >= 0) {
+            spannable.setSpan(new ClickableSpan() {
+                @Override
+                public void onClick(@NonNull View widget) {
+                    Intent intent = new Intent(SecretDialogActivity.this, BrowerActivity.class);
+                    intent.putExtra("filePath", Preferences.YINSI_URL);
+                    intent.putExtra("name", "隐私政策");
+                    intent.putExtra("allowOpenInBrowser", 0);
+                    startActivity(intent);
+                }
 
-        spannable.setSpan(new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                Intent intent = new Intent(SecretDialogActivity.this, BrowerActivity.class);
-                intent.putExtra("filePath", Preferences.XIEYI_URL);
-                intent.putExtra("name", "用户协议");
-                intent.putExtra("allowOpenInBrowser", 0);
-                startActivity(intent);
-            }
+                @Override
+                public void updateDrawState(@NonNull TextPaint ds) {
+                    ds.setColor(SecretDialogActivity.this.getResources().getColor(R.color.red_e61b19));
+                    ds.setUnderlineText(false);
+                }
+            }, yinsiStart, yinsiEnd, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
 
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                ds.setColor(SecretDialogActivity.this.getResources().getColor(R.color.red_e61b19));
-                ds.setUnderlineText(false);
-            }
-        }, content.length() - 57, content.length() - 49, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        // 动态查找《用户服务协议》位置
+        int xieyiStart = content.indexOf("《用户服务协议》");
+        int xieyiEnd = xieyiStart + "《用户服务协议》".length();
+        if (xieyiStart >= 0) {
+            spannable.setSpan(new ClickableSpan() {
+                @Override
+                public void onClick(@NonNull View widget) {
+                    Intent intent = new Intent(SecretDialogActivity.this, BrowerActivity.class);
+                    intent.putExtra("filePath", Preferences.XIEYI_URL);
+                    intent.putExtra("name", "用户协议");
+                    intent.putExtra("allowOpenInBrowser", 0);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void updateDrawState(@NonNull TextPaint ds) {
+                    ds.setColor(SecretDialogActivity.this.getResources().getColor(R.color.red_e61b19));
+                    ds.setUnderlineText(false);
+                }
+            }, xieyiStart, xieyiEnd, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
+
         tv_content.setText(spannable);
         tv_content.setMovementMethod(LinkMovementMethod.getInstance());
     }
